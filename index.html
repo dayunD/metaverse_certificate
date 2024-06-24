@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gaegu&family=Gugi&family=Hi+Melody&family=Moirai+One&family=Nanum+Pen+Script&family=Noto+Sans+KR&display=swap"
+        rel="stylesheet">
+    <title>수료증 입력</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            /* 추가: 세로 방향으로 요소 정렬 */
+            background-color: #ffffff;
+            /* 배경색을 흰색으로 설정 */
+        }
+
+        h1 {
+            font-family: 'Gugi', sans-serif;
+            margin-bottom: 20px;
+            /* 추가: h1과 다음 요소 사이의 간격 조절 */
+        }
+
+        #container {
+            text-align: left;
+            background-color: #ffffff;
+            /* 배경색을 흰색으로 설정 */
+            padding: 20px;
+            /* 요소 주위에 여백 추가 */
+            border-radius: 10px;
+            /* 요소를 둥근 모서리로 설정 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* 그림자 효과 추가 */
+        }
+
+        input,
+        button {
+            margin: 10px 0;
+            padding: 10px;
+            /* 내용 주위에 여백 추가 */
+        }
+
+        img {
+            width: 100%;
+            /* 이미지를 부모 요소의 100%로 설정하여 가로 크기 조절 */
+            max-width: 400px;
+            /* 이미지의 최대 가로 크기 설정 */
+            height: auto;
+            /* 비율에 맞게 세로 크기 자동 조절 */
+        }
+
+        .logo {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="logo" src="에이블 로고.png" alt="에이블 로고">
+    <img src="초등메타버스 표지.png" alt="초등메타버스 표지">
+
+    <h1>에이블 메타버스 방탈출 수료증</h1>
+
+    <div id="container">
+        <!-- 셀 2 텍스트를 입력할 input 요소 -->
+        <div>
+            <label for="cell2Text">성 명:</label>
+            <input type="text" id="cell2Text">
+        </div>
+        <div>
+            <!-- 셀 4 텍스트를 입력할 input 요소 -->
+            <label for="cell4Text">학 교:</label>
+            <input type="text" id="cell4Text">
+
+            <!-- 다음 버튼 -->
+
+            <button onclick="goToNextPage()">다음</button>
+        </div>
+    </div>
+
+    <script>
+        function goToNextPage() {
+            // index1.html 페이지로 이동하면서 입력된 값을 전달
+            var cell2TextValue = document.getElementById('cell2Text').value;
+            var cell4TextValue = document.getElementById('cell4Text').value;
+
+            // index1.html 페이지로 이동
+            window.location.href = 'index1.html?cell2=' + encodeURIComponent(cell2TextValue) + '&cell4=' + encodeURIComponent(cell4TextValue);
+        }
+    </script>
+</body>
+
+</html>
